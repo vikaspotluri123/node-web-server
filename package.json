@@ -1,0 +1,25 @@
+{
+  "name": "node-web-server",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Vikas <potlurivikas@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.0.1",
+    "ecstatic": "^3.3.0",
+    "node-windows": "^0.1.14",
+    "on-finished": "^2.3.0"
+  },
+  "devDependencies": {
+    "xo": "^0.23.0"
+  },
+  "xo": {
+    "rules": {
+      "func-names": [
+        "error",
+        "as-needed"
+      ],
+      "func-name-matching": "off"
+    }
+  }
+}
