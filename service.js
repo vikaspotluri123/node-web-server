@@ -16,7 +16,7 @@ function run(cb = () => true) {
 	service.install();
 }
 
-if (module.parent) {
+if (!module.parent) {
 	return run();
 }
 
