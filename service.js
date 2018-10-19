@@ -1,15 +1,23 @@
 const LOG_PATH = `${__dirname}/service.log`;
-const {Service} = require('node-windows');
 const {createWriteStream} = require('fs');
-const service = new Service({
-  name:'Node Web Server',
-  description: 'Minimal web server with functional firewall',
-  script: `${__dirname}/index.js`,
-});
+const service = require('./cmd-svc/object');
 
-service.on('install',() => service.start());
-service.on('error', error => {
-	const stream = createWriteStream(LOG_PATH, {flags: 'a'}).write(error.trace() + '\n\n');
-});
+function run(cb) {
+	service.on('install', () => {
+		service.start();
+		if(cb && typeof cb === 'function') {
+			cb();
+		}
+	});
+	service.on('error', error => {
+		createWriteStream(LOG_PATH, {flags: 'a'}).write(error.trace() + '\n\n');
+	});
 
-service.install();
+	service.install();
+}
+
+if (module.parent) {
+	return run();
+}
+
+module.exports = run;
