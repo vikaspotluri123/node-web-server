@@ -2,7 +2,7 @@ const LOG_PATH = `${__dirname}/service.log`;
 const {createWriteStream} = require('fs');
 const service = require('./cmd-svc/object');
 
-function run(cb) {
+function run(cb = () => true) {
 	service.on('install', () => {
 		service.start();
 		if(cb && typeof cb === 'function') {
