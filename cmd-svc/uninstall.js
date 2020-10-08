@@ -1,6 +1,6 @@
 const service = require('./object');
 
-function run(cb) {
+function run(callback) {
 	service.on('uninstall', () => {
 		if (service.exists) {
 			console.log('Service uninstalled but still exists');
@@ -8,16 +8,16 @@ function run(cb) {
 			console.log('Uninstall complete');
 		}
 
-		if (cb && typeof cb === 'function') {
-			cb(service.exists);
+		if (callback && typeof callback === 'function') {
+			callback(service.exists);
 		}
 	});
 
 	service.uninstall();
 }
 
-if (!module.parent) {
-	return run();
+if (module.parent) {
+	module.exports = run;
+} else {
+	run();
 }
-
-module.exports = run;

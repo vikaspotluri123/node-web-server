@@ -4,8 +4,8 @@ function run() {
 	console.log(`Exists: ${service.exists}`);
 }
 
-if (!module.parent) {
-	return run();
+if (module.parent) {
+	module.exports = run;
+} else {
+	run();
 }
-
-module.exports = run;

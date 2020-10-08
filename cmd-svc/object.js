@@ -1,5 +1,6 @@
 if (!module.parent) {
 	console.log('This is an internal utility.');
+	// eslint-disable-next-line unicorn/no-process-exit
 	process.exit(1);
 }
 
@@ -9,7 +10,7 @@ const {join} = require('path');
 const service = new Service({
 	name: 'Node Web Server',
 	description: 'Minimal web server with functional firewall',
-	script: join(__dirname, '..', '/index.js'),
+	script: join(__dirname, '..', '/index.js')
 });
 
 module.exports = service;

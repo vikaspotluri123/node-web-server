@@ -2,11 +2,11 @@ const install = require('../service');
 const uninstall = require('./uninstall');
 
 function run() {
-	uninstall(install)
+	uninstall(install);
 }
 
-if (!module.parent) {
-	return run();
+if (module.parent) {
+	module.exports = run;
+} else {
+	run();
 }
-
-module.exports = run;

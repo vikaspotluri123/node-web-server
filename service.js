@@ -1,12 +1,12 @@
-const LOG_PATH = `${__dirname}/service.log`;
+const LOG_PATH = require('path').join(__dirname, 'service.log');
 const {createWriteStream} = require('fs');
 const service = require('./cmd-svc/object');
 
-function run(cb = () => true) {
+function run(callback = () => true) {
 	service.on('install', () => {
 		service.start();
-		if(cb && typeof cb === 'function') {
-			cb();
+		if (callback && typeof callback === 'function') {
+			callback();
 		}
 	});
 	service.on('error', error => {
@@ -16,8 +16,9 @@ function run(cb = () => true) {
 	service.install();
 }
 
-if (!module.parent) {
-	return run();
+if (module.parent) {
+	module.exports = run;
+} else {
+	run();
 }
 
-module.exports = run;

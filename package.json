@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Vikas <potlurivikas@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "xo"
+  },
   "dependencies": {
     "debug": "^4.2.0",
     "ecstatic": "^4.1.4",
@@ -11,7 +14,7 @@
     "on-finished": "^2.3.0"
   },
   "devDependencies": {
-    "xo": "^0.23.0"
+    "xo": "^0.33.1"
   },
   "xo": {
     "rules": {

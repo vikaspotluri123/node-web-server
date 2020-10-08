@@ -1,7 +1,7 @@
 module.exports = {
 	port: 80,
-	accessLog: "C:\\logs\\nwsa.log",
-	errorLog: "C:\\logs\\nwse.log",
+	accessLog: 'C:\\logs\\nwsa.log',
+	errorLog: 'C:\\logs\\nwse.log',
 	log: false, // This disables logging to file, not service logging :)
 	hosts: [{
 		name: 'proxy',

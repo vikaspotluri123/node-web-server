@@ -1,9 +1,12 @@
 const service = require('./object');
 
-function run(cb = () => true) {
-	function done(err) {
-		err || console.log('Service started');
-		cb(err);
+function run(callback = () => true) {
+	function done(error) {
+		if (!error) {
+			console.log('Service started');
+		}
+
+		callback(error);
 	}
 
 	service.once('start', done);
@@ -12,8 +15,8 @@ function run(cb = () => true) {
 	service.start();
 }
 
-if (!module.parent) {
-	return run();
+if (module.parent) {
+	module.exports = run;
+} else {
+	run();
 }
-
-module.exports = run;
