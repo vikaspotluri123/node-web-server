@@ -5,12 +5,12 @@ if (!module.parent) {
 }
 
 const {Service} = require('node-windows');
-const {join} = require('path');
+const path = require('path');
 
 const service = new Service({
 	name: 'Node Web Server',
 	description: 'Minimal web server with functional firewall',
-	script: join(__dirname, '..', '/index.js')
+	script: path.join(__dirname, '..', '/index.js')
 });
 
 module.exports = service;
