@@ -8,13 +8,13 @@
     "lint": "xo"
   },
   "dependencies": {
-    "debug": "^4.2.0",
+    "debug": "^4.3.1",
     "ecstatic": "^4.1.4",
     "node-windows": "^1.0.0-beta.5",
     "on-finished": "^2.3.0"
   },
   "devDependencies": {
-    "xo": "^0.34.2"
+    "xo": "^0.36.1"
   },
   "xo": {
     "rules": {
