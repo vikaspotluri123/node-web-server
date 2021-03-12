@@ -14,7 +14,7 @@
     "on-finished": "^2.3.0"
   },
   "devDependencies": {
-    "xo": "^0.36.1"
+    "xo": "^0.38.2"
   },
   "xo": {
     "rules": {
